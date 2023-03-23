@@ -87,18 +87,14 @@ Complete the following tasks:
 a <- as.integer(500)
 b <- as.double(500)
 c <- as.character(500)
-
 # Enter your code here!
-
-
-
+typeof(a)
+typeof(b)
+typeof(c)
 # Check the data type of the new variable 'd'
 d <- a / b
-
 # Enter your code here!
-
-
-
+typeof(d)
 ```
 
 ***
@@ -153,9 +149,15 @@ Hint: Check out the "letters" and "LETTERS" key words in R.
 
 ```{r}
 # Enter your code here.
-
-
-
+alphabet1 <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
+alphabet1
+is.vector(alphabet1)
+# matrix
+alphabet2 <- matrix(c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+                      "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"), 
+                    nrow = 2, byrow = T)
+alphabet2
+is.matrix(alphabet2)
 ```
 
 ### DataFrame
@@ -189,47 +191,47 @@ df2  # Makes a data frame with three different data types
 
 ``` {r}
 # Check your current working directory
-# wd1 <- getwd()
-# paste("Current Working Directory: ", wd1)
+wd1 <- getwd()
+paste("Current Working Directory: ", wd1)
 
 # Setting the working directory for a project
-# setwd("c://.../project")
-# wd2 <- getwd()
-# paste("Current Working Directory: ", wd2)
+#setwd("c://.../project")
+#wd2 <- getwd()
+#paste("Current Working Directory: ", wd2)
 ```
 
 ### Installing and Loading Packages
 
 ```{r, include=FALSE}
 # Install a new package, note the quotation marks
-# install.packages("mass")
+#install.packages("mass")
 
 # Install multiple packages at once
-# install.packages(c("dplyr", "ggplot2"))
+#install.packages(c("dplyr", "ggplot2"))
 
 # Loading the package, note no quotation marks
-# library(dplyr)
+#library(dplyr)
 
 # Checking the package version
-# packageVersion("dplyr")
+packageVersion("dplyr")
 
 # List all functions in a package
-# ls("package:ggplot2")
+#ls("package:ggplot2")
 
 # Loading a function from package
-# ggplot2::geom_line
+ggplot2::geom_line
 
 # Update all packages
-# update.packages()
+update.packages()
 
 # Unload a package
-# detach(package:ggplot2, unload=TRUE)
+#detach(package:ggplot2, unload = TRUE)
 
 # Help function
-# help(dplyr)
+#help(dplyr)
 
 # Checking the session info
-# sessionInfo()
+#sessionInfo()
 ```
 
 ***
@@ -253,20 +255,16 @@ Once you finished and knit the RMarkdown file into html file, you should be able
 ```{r}
 # Write your code here!
 # Part a
-
-
+x <- 4
 # Part b
-
-
+y <- 12
 # Part c
-
-
+x
+y
 # Part d
-
-
+z <- y/x
 # Part e
 print(paste("y divided by x is equal to ", z))
-
 
 # Do not need to change the following code!
 if (exists("x") == TRUE | exists("y") == TRUE | exists("z") == TRUE){
