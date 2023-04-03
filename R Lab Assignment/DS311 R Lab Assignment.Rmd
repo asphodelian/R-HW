@@ -40,32 +40,26 @@ dim(mtcars)
 print("There are total of 11 variables and 32 observations in this data set.")
 ```
 
-
-
 b. Print the summary statistics of the data set and report how many discrete and continuous variables are in the data set.
 
 ```{r}
 # Enter your code here!
-
-
+summary(mtcars)
 # Answer:
-print("There are _____ discrete variables and _____ continuous variables in this data set.")
+print("There are 5 discrete variables and 6 continuous variables in this data set.")
 ```
-
-
 
 c. Calculate the mean, variance, and standard deviation for the variable **mpg** and assign them into variable names m, v, and s. Report the results in the print statement.
 
 ```{r}
 # Enter your code here!
-
-
-
-
-# print(paste("The average of Mile Per Gallon from this data set is ",  , " with variance ",  , " and standard deviation",  , "."))
+mpg <- mtcars$mpg
+m <- mean(mpg)
+v <- var(mpg)
+s <- sqrt(v)
+# print
+print(paste("The average of Mile Per Gallon from this data set is ",  m, " with variance ",  v, " and standard deviation",  s, "."))
 ```
-
-
 
 d. Create two tables to summarize 1) average mpg for each cylinder class and 2) the standard deviation of mpg for each gear class.
 
