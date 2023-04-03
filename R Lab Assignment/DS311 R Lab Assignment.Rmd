@@ -65,13 +65,12 @@ d. Create two tables to summarize 1) average mpg for each cylinder class and 2) 
 
 ```{r}
 # Enter your code here!
-
-
-
-
+cyl <- mtcars$cyl
+gear <- mtcars$gear
+# table
+aggregate(mpg ~ cyl, mtcars, mean)
+aggregate(mpg ~ gear, mtcars, sd)
 ```
-
-
 
 e. Create a crosstab that shows the number of observations belong to each cylinder and gear class combinations. The table should show how many observations given the car has 4 cylinders with 3 gears, 4 cylinders with 4 gears, etc. Report which combination is recorded in this data set and how many observations for this type of car.
 
