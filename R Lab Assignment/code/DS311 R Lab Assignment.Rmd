@@ -62,6 +62,8 @@ s <- sqrt(v)
 print(paste("The average of Mile Per Gallon from this data set is ",  m, " with variance ",  v, " and standard deviation",  s, "."))
 ```
 
+"The average of Mile Per Gallon from this data set is  20.090625  with variance  36.3241028225806  and standard deviation 6.0269480520891 ."
+
 d. Create two tables to summarize 1) average mpg for each cylinder class and 2) the standard deviation of mpg for each gear class.
 
 ```{r}
@@ -80,6 +82,8 @@ e. Create a crosstab that shows the number of observations belong to each cylind
 table(cyl, gear)
 print("The most common car type in this data set is car with 8 cylinders and 3 gears. There are total of 12 cars belong to this specification in the data set.")
 ```
+
+"The most common car type in this data set is car with 8 cylinders and 3 gears. There are total of 12 cars belong to this specification in the data set."
 
 *** 
 
