@@ -110,7 +110,7 @@ In this box plot, the median of each group is quite different. We see that the c
 b. Using the **mtcars** data set, plot the histogram for the column **mpg** with 10 breaks. Give labels to the title, x-axis, and y-axis on the graph. Report the most observed mpg class from the data set.
 
 ```{r}
-hist(mpg, breaks = 10, main = "Histogram of MPG in mtcars dataset", xlab = "MPG", ylab = "Frequency")
+hist(mpg, breaks = 10, main = "MPG of mtcars", xlab = "MPG", ylab = "Frequency")
 print("Most of the cars in this data set are in the class of 15 mile per gallon.")
 ```
 
@@ -162,7 +162,19 @@ head(housingData)
 
 # Enter your code here!
 
-
+neighbor <- as.factor(housingData$Neighborhood)
+market <- housingData$Market.Value.per.SqFt
+boro <- as.factor(housingData$Boro)
+year <- housingData$Year.Built
+# summary
+summary(housingData)
+summary(neighbor)
+summary(boro)
+# table
+aggregate(market, by = list(boro), FUN = function(x) c(mean = mean(x), sd = sd(x)))
+table(neighbor)
+table(neighbor, boro)
+table(neighbor, cut(year, breaks = seq(min(year), max(year), by = 10)))
 ```
 
 b. Create multiple plots to demonstrates the correlations between different variables. Remember to label all axes and give title to each graph.
@@ -170,6 +182,27 @@ b. Create multiple plots to demonstrates the correlations between different vari
 ```{r}
 # Enter your code here!
 
+library(ggplot2)
+library(dplyr)
+# variable
+avgMarket <- tapply(market, boro, mean)
+# plot
+ggplot(data = housingData, aes(x = year, y = market)) +
+  geom_point() +
+  labs(title = "Market Value per Sqft vs Year Built",
+       x = "Year Built",
+       y = "Market Value per Sqft")
+
+ggplot(data = housingData, aes(x = boro, y = market)) +
+  geom_boxplot() +
+  labs(title = "Market Value per Sqft by Borough",
+       x = "Borough",
+       y = "Market Value per Sqft")
+
+barplot(avgMarket, 
+        main = "Average Market Value per Sqft by Borough", 
+        xlab = "Borough", 
+        ylab = "Average Market Value per Sqft")
 
 ```
 
@@ -177,3 +210,4 @@ c. Write a summary about your findings from this exercise.
 
 => Enter your answer here!
 
+The bar plot and histogram appear quite similar. In both, Manhattan is a popular borough that has the highest market value per square feet, completely dwarfing all the other boroughs. Also, Staten Island has the lowest market value per square feet, barely appearing in the histogram. In the scatter plot shows that most of the market value per square feet is between 50 and 250, especially more densely for those built between 1975 and 2000s. Those built in the 2000s do seem to have a higher reach in the market value compared to older homes, but of course there will be outliers. From 1825 to 1900, there aren't many housings being put up on market, and seem to keep between 100 and 200 market value per square feet.
