@@ -76,11 +76,9 @@ e. Create a crosstab that shows the number of observations belong to each cylind
 
 ```{r}
 # Enter your code here!
-
-
-print("The most common car type in this data set is car with ____ cylinders and ____ gears. There are total of _____ cars belong to this specification in the data set.")
+table(cyl, gear)
+print("The most common car type in this data set is car with 8 cylinders and 3 gears. There are total of 12 cars belong to this specification in the data set.")
 ```
-
 
 *** 
 
@@ -98,26 +96,23 @@ data("PlantGrowth")
 head(PlantGrowth)
 
 # Enter your code here!
-
-
+boxplot(weight ~ group, data = PlantGrowth,
+        xlab = "Group", ylab = "Weight",
+        main = "Weight by Group")
 ```
 
 Result:
 
 => Report a paragraph to summarize your findings from the plot!
 
-
+In this box plot, the median of each group is quite different. We see that the control group has a higher median than the two treated ones, and treatment 1 has a higher median than treatment 2. We also see that the first treatment has more variability in weight compared to the other 2, having a noticeable outlier. So the different fertilizer treatments do have an effect, but depending on what you desire, treatment 2 would be a good fertilizer to use, because the plants have a higher weight despite having a lower median.
 
 b. Using the **mtcars** data set, plot the histogram for the column **mpg** with 10 breaks. Give labels to the title, x-axis, and y-axis on the graph. Report the most observed mpg class from the data set.
 
 ```{r}
-
-
-
-print("Most of the cars in this data set are in the class of ______ mile per gallon.")
+hist(mpg, breaks = 10, main = "Histogram of MPG in mtcars dataset", xlab = "MPG", ylab = "Frequency")
+print("Most of the cars in this data set are in the class of 15 mile per gallon.")
 ```
-
-
 
 c. Using the **USArrests** data set, create a pairs plot to display the correlations between the variables in the data set. Plot the scatter plot with **Murder** and **Assault**. Give labels to the title, x-axis, and y-axis on the graph. Write a paragraph to summarize your results from both plots.
 
@@ -129,15 +124,17 @@ data("USArrests")
 head(USArrests)
 
 # Enter your code here!
-
-
+murder <- USArrests$Murder
+assault <- USArrests$Assault
+plot(murder, assault, xlab = "Murder", ylab = "Assault", main = "Murder and Assault Arrests")
+abline(lm(assault ~ murder), col = "darkorchid")
 ```
 
 Result:
 
 => Report a paragraph to summarize your findings from the plot!
 
-
+As murder arrests increases, so does assault arrests. We see that there is a positive correlation between these two variables. There are also plenty of points that stray from the line. Some of them show that assault is high when murder is low and vice versa, but considering this dataset has 1973 statistics on murder, assault, and rape arrests per 100,000 population in each of the 50 states, there will be variability across each state.
 
 ***
 
