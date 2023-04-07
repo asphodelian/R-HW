@@ -133,6 +133,7 @@ murder <- USArrests$Murder
 assault <- USArrests$Assault
 plot(murder, assault, xlab = "Murder", ylab = "Assault", main = "Murder and Assault Arrests")
 abline(lm(assault ~ murder), col = "darkorchid")
+pairs(USArrests[c("Murder", "Assault")])
 ```
 
 Result:
